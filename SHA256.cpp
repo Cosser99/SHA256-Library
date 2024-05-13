@@ -51,31 +51,14 @@ string stringToBinary(const string& text) {
     }
     return binaryString;
 }
-void printUint32Vector(const vector<uint32_t>& vec) {
-    cout << "Uint32_t:" <<endl;
-    for (uint32_t val : vec) {
-       cout << val <<endl;
-    }
-}
+
 string uint32ToBinaryString(uint32_t num) {
     return bitset<32>(num).to_string();
 }
 string uint64ToBinaryString(uint64_t num) {
     return bitset<64>(num).to_string();
 }
-void printUint32VectorInBinary(const vector<uint32_t>& vec) {
-    cout << "Uint32_t in binario:" << endl;
-    for (uint32_t val : vec) {
-        string binaryString = bitset<32>(val).to_string();
-        for (size_t i = 0; i < binaryString.size(); i += 8) {
-            cout << binaryString.substr(i, 8)<<" size: "<<binaryString.size();
-            if (i + 8 < binaryString.size()) {
-                cout << " "; // Aggiungi un tabulato ogni 8 bit
-            }
-        }
-        cout << endl;
-    }
-}
+
 void ExtendVector(vector<uint32_t> &w,int n)
 {
     for(int i=0;i<n;i++)
@@ -126,9 +109,7 @@ uint32_t op4(uint32_t input)
     uint32_t tmp=input;
     return rot(tmp,6,1)^rot(tmp,11,1)^rot(tmp,25,1);
 }
-void printUint32InHex(uint32_t value) {
-    cout << hex << setw(8) << setfill('0') << value;
-}
+
 string Uint32ToHexString(uint32_t value)
 {
     stringstream ss;
@@ -192,7 +173,6 @@ void SHA256::Convert()
     CreateBlock(Block,w);
     //Per ogni blocco
     nblock=Block.size();
-    cout<<nblock<<endl;
     for(int i=0;i<nblock;i++)
     {
         //ESTRAGGO LA WORD
