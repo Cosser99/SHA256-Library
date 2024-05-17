@@ -52,20 +52,6 @@ string stringToBinary(const string& text) {
     return binaryString;
 }
 
-string uint32ToBinaryString(uint32_t num) {
-    return bitset<32>(num).to_string();
-}
-string uint64ToBinaryString(uint64_t num) {
-    return bitset<64>(num).to_string();
-}
-
-void ExtendVector(vector<uint32_t> &w,int n)
-{
-    for(int i=0;i<n;i++)
-    {
-        w.push_back(0);
-    }
-}
 uint32_t rot(uint32_t input,int n,int option) //0 LEFT 1 RIGHT
 {
   if(option!=1&&option!=0) {cout<<"ERROR SHIFT"<<endl;exit(1);}
@@ -165,7 +151,8 @@ void SHA256::Convert()
         binmsg+='0';
     }
     //append length
-    binmsg+=uint64ToBinaryString(l);
+    binmsg+=bitset<64>(l).to_string();
+    //TODO: aggiungere i reserve qui
     vector<uint32_t> w=splitBinaryString(binmsg);
 
     vector<vector<uint32_t>> Block;
@@ -178,7 +165,7 @@ void SHA256::Convert()
         //ESTRAGGO LA WORD
         w=Block[i];
         //Estensione fino a 64 righe totali
-        ExtendVector(w,64-16);
+        w.insert(w.end(),64-16,0);
         //Operazione
         for(int i=16;i<64;i++)
         {

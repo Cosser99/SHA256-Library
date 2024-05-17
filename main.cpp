@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    SHA256 a("");
+    SHA256 a("a");
     a.Convert();
     a.PrintDigest();
 }

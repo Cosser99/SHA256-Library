@@ -31,11 +31,6 @@ private:
  void InitializeH(uint32_t *h);
  vector<uint32_t> splitBinaryString(const string& binaryString);
  string stringToBinary(const string& text);
- string uint32ToBinaryString(uint32_t num);
- string uint64ToBinaryString(uint64_t num);
- string uint32ToBinaryString(uint32_t num);
- string uint64ToBinaryString(uint64_t num);
- void ExtendVector(vector<uint32_t> &w,int n);
  uint32_t rot(uint32_t input,int n,int option);
  uint32_t shift(uint32_t input,int n,int option);
  uint32_t op1(uint32_t input);
