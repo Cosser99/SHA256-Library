@@ -102,15 +102,6 @@ string Uint32ToHexString(uint32_t value)
     ss<<hex<<setw(8)<<setfill('0')<<value;
     return ss.str();
 }
-void CopyVector(vector<uint32_t> &v,vector<uint32_t> &original,int start,int n)
-{
-    int j=0;
-    for(int i=start;i<n;i++)
-    {
-        v.push_back(original[i]);
-    }
-    return;
-}
 void CreateBlock(vector<vector<uint32_t>> &block,vector<uint32_t> &w)
 {
     int nblock=w.size()/16;
@@ -119,7 +110,7 @@ void CreateBlock(vector<vector<uint32_t>> &block,vector<uint32_t> &w)
     {
             vector<uint32_t> tmp;
             block.push_back(tmp);
-            CopyVector(block[i],w,i*16,(i+1)*16);
+            block[i].assign(w.begin()+i*16,w.begin()+(i+1)*16);
     }
 }
 void SHA256::Convert()

@@ -37,7 +37,6 @@ private:
  uint32_t op2(uint32_t input);
  uint32_t op3(uint32_t input);
  uint32_t op4(uint32_t input);
- void CopyVector(vector<uint32_t> &v,vector<uint32_t> &original,int start,int n);
  void CreateBlock(vector<vector<uint32_t>> &block,vector<uint32_t> &w);
 
 
