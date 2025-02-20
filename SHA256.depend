@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1740091054 source:c:\users\cosse\onedrive\desktop\c++\sha256-library\sha256.cpp
+	"SHA256.h"
+
+1740090242 c:\users\cosse\onedrive\desktop\c++\sha256-library\sha256.h
+	<iostream>
+	<string.h>
+	<bitset>
+	<vector>
+	<iomanip>
+	<fstream>
+
+1740090872 source:c:\users\cosse\onedrive\desktop\c++\sha256-library\main.cpp
+	<iostream>
+	"SHA256.h"
+

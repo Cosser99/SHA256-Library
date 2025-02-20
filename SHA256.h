@@ -6,6 +6,7 @@
 #include <bitset>
 #include <vector>
 #include <iomanip>
+#include <fstream>
 
 using namespace std;
 class SHA256
@@ -18,11 +19,15 @@ public:
      SHA256& operator=(const string& text);
      void PrintDigest();
      string GetDigest();
+     void FromFile(string dir);
+     void SaveFile();
 
 private:
     string GetOr(){return original;}
      string original;
      string digest;
+     string filedir;
+     int fsize;
 
 
 };

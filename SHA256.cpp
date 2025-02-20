@@ -226,3 +226,39 @@ void SHA256::PrintDigest()
     cout<<"ORIGINAL: " <<original<<endl<<"DIGEST: "<<endl;
     cout<<digest<<endl;
 }
+
+void SHA256::FromFile(string dir)
+{
+    streampos sz; //size of the file
+    this->filedir=dir;
+    ifstream file;
+    file.open(dir);
+    if (!file) {
+        std::cerr << "Errore nell'apertura del file!" << std::endl;
+        return ;
+    }
+    sz=file.tellg();
+    file.seekg(0, std::ios::beg);
+    std::string fileContent((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+    this->original=fileContent;
+    cout<<"File Aperto"<<endl;
+    file.close();
+}
+void SHA256::SaveFile()
+{
+    //Salvataggio del file
+    ofstream file("output.txt");
+    if (!file) {
+        std::cerr << "Errore nella creazione del file di output!" << std::endl;
+        return ;
+    }
+
+    file << this->digest;
+    file.close();
+
+    std::cout << "File salvato con successo!" << std::endl;
+
+    file.close();
+
+}
+
